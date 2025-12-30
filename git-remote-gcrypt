@@ -550,7 +550,7 @@ ensure_connected()
 	#check custom manifest file name
 	if [ ! -z "$url_frag_custom" ]; then
 		echo_info "-- dr57 > Custom Manifestfile detected."
-		Manifestfile=$(xecho_n "$url_frag_custom" | gpg_hash SHA224)
+		Manifestfile="$url_frag_custom"
 	fi
 	#Manifestfile can be altered by the next outer url_frag
 
