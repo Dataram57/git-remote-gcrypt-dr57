@@ -21,12 +21,8 @@
             version = "1.5"; # change if your fork diverges
             rev = version;
 
-            src = pkgs.fetchFromGitHub {
-                owner = "dr57";               # ← CHANGE IF NEEDED
-                repo = "git-remote-gcrypt";   # or your fork repo name
-                inherit rev;
-                sha256 = "sha256-uy6s3YQwY/aZmQoW/qe1YrSlfNHyDTXBFxB6fPGiPNQ=";
-            };
+            src = ./.;  # point to the local repo
+
 
             outputs = [ "out" "man" ];
 
