@@ -56,13 +56,6 @@
                 runHook postInstall
             '';
 
-            meta = with pkgs.lib; {
-                homepage = "https://github.com/dr57/git-remote-gcrypt";
-                description = "Git remote helper for GPG-encrypted remotes (dr57 fork)";
-                license = licenses.gpl3;
-                platforms = platforms.unix;
-                mainProgram = "git-remote-gcrypt-dr57";
-            };
             };
         }
         );
