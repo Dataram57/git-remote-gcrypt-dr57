@@ -178,6 +178,9 @@ anon_commit()
     local user_email="$(git config --get "remote.$NAME.gcrypt-commitemail" 2>/dev/null || echo "@")"
     local current_time="$(date +%s)"
 
+	echo_info "-- dr57 > Push author: $user_name"
+	echo_info "-- dr57 > Push email: $user_email"
+
 	GIT_AUTHOR_NAME="$user_name" \
     GIT_AUTHOR_EMAIL="$user_email" \
     GIT_AUTHOR_DATE="$current_time" \
