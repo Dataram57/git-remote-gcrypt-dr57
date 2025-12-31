@@ -173,6 +173,13 @@ gitception_get()
 
 anon_commit()
 {
+	#///////////////////////////////
+	#GIT_AUTHOR_NAME="root" GIT_AUTHOR_EMAIL="root@localhost" \
+	#GIT_AUTHOR_DATE="1356994801 -0400" GIT_COMMITTER_NAME="root" \
+	#GIT_COMMITTER_EMAIL="root@localhost" \
+	#GIT_COMMITTER_DATE="1356994801 -0400" \
+	#///////////////////////////////
+
 	################################
 	local user_name="$(git config --get "remote.$NAME.gcrypt-commituser" 2>/dev/null || echo "Anon")"
     local user_email="$(git config --get "remote.$NAME.gcrypt-commitemail" 2>/dev/null || echo "@")"
@@ -187,18 +194,10 @@ anon_commit()
     GIT_COMMITTER_NAME="$user_name" \
     GIT_COMMITTER_EMAIL="$user_email" \
     GIT_COMMITTER_DATE="$current_time" \
-
-	################################
-
-	#///////////////////////////////
-	#GIT_AUTHOR_NAME="root" GIT_AUTHOR_EMAIL="root@localhost" \
-	#GIT_AUTHOR_DATE="1356994801 -0400" GIT_COMMITTER_NAME="root" \
-	#GIT_COMMITTER_EMAIL="root@localhost" \
-	#GIT_COMMITTER_DATE="1356994801 -0400" \
-	#///////////////////////////////
 		git commit-tree "$@" <<EOF
 Initial commit
 EOF
+################################
 }
 
 # Get 'tree' from $1, change file $2 to obj id $3
