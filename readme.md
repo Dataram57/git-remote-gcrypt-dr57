@@ -41,7 +41,7 @@ outputs = inputs @ { ..., git-remote-gcrypt-dr57 , ... }: #...
 # ... stuff...
 
 home.packages = [       # or `environment.systemPackages`
-    git-remote-gcrypt-dr57.packages.${pkgs.system}.git-mirror_tracker
+    git-remote-gcrypt-dr57.packages.${pkgs.system}.default
     # ... other packages
 ]
 
